@@ -26,16 +26,22 @@ async function onClick()
     $(".black-screen").addClass("fade");
     var pre = prepromise[getRandomInt(prepromise.length)];
     $(".prepromise").html(pre);
-    await sleep(5000);
+    await sleep(1000);
     $(".loading").addClass("fade");
-    var prom = promises[getRandomInt(promises.length)];
-    var loop = 0;
-    while(localStorage.getItem("lastP", "") == prom && loop < 100)
+    var last = parseInt(localStorage.getItem("last", "0"));
+    if(isNaN(last))
     {
-        prom = promises[getRandomInt(promises.length)];
-        loop++;
+        last = 0;
     }
-    localStorage.setItem("lastP", prom);
+    console.log(last);
+    var prom = "пока ничего, но обязательно возвращайся завтра 🥺";
+    if(last < promises.length)
+    {
+        prom = promises[last];
+        last++;
+        parseInt(localStorage.setItem("last", last.toString()));
+    }
+    console.log(prom);
     $(".sun").html(prom);
 }
 

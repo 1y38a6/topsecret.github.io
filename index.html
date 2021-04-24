@@ -5,11 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
     <title>Top secret #1</title>
 </head>
 <body>
-    <div class="container black-screen" onclick="onClick()">тыкни сюда</div>
-    <div class="container sun">улыбнись, солнышко ♥</div>
+    <div class="container black-screen" onclick="onClick()">нажми, чтобы получить предсказание</div>
+    <div class="loading">
+        <div class="container"><div class="lds-heart"><div></div></div></div>
+        <br>
+        <p class="prepromise"></p>
+    </div>
+    <div class="container sun"></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

@@ -33,7 +33,6 @@ async function onClick()
     {
         last = 0;
     }
-    console.log(last);
     var prom = "пока ничего, но обязательно возвращайся завтра 🥺";
     if(last < promises.length)
     {
@@ -41,7 +40,6 @@ async function onClick()
         last++;
         parseInt(localStorage.setItem("last", last.toString()));
     }
-    console.log(prom);
     $(".sun").html(prom);
 }
 

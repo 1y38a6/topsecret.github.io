@@ -26,7 +26,7 @@ async function onClick()
     $(".black-screen").addClass("fade");
     var pre = prepromise[getRandomInt(prepromise.length)];
     $(".prepromise").html(pre);
-    await sleep(1000);
+    await sleep(5000);
     $(".loading").addClass("fade");
     var last = parseInt(localStorage.getItem("last", "0"));
     if(isNaN(last))

@@ -103,7 +103,7 @@ async function onClick()
     $("body").css("background-color", newColor);
     // $(".loading").css("background-color", newColor);
 
-    await sleep(1000);
+    await sleep(5000);
 
     $(".loading").addClass("fade");
     var last = parseInt(localStorage.getItem("last", "0"));

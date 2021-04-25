@@ -114,7 +114,7 @@ async function onClick()
     var lastDate = "00/00/0000";
     if(localStorage.getItem("lastDay"))
     {
-        lastDate = localStorage.getItem("lastDay") + localStorage.setItem("lastMonth", month.toString()) + localStorage.setItem("lastYear", year.toString());
+        lastDate = localStorage.getItem("lastDay") + "/" + localStorage.getItem("lastMonth") + "/"  + localStorage.getItem("lastYear");
     }
     if(!compareDate(lastDate))
     {

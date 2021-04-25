@@ -111,6 +111,15 @@ async function onClick()
     {
         last = 0;
     }
+    var lastDate = "00/00/0000";
+    if(localStorage.getItem("lastDay"))
+    {
+        lastDate = localStorage.getItem("lastDay") + localStorage.setItem("lastMonth", month.toString()) + localStorage.setItem("lastYear", year.toString());
+    }
+    if(!compareDate(lastDate))
+    {
+        last = 0;
+    }
     var prom = "пока ничего, но обязательно возвращайся завтра 🥺";
     $(".date").html((day < 10 ? "0" : "") + day + "/" + (month < 10 ? "0" : "") + month + "/" + year);
     while(last < promises.length)
@@ -124,7 +133,10 @@ async function onClick()
         }
         last++;
     }
-    parseInt(localStorage.setItem("last", last.toString()));
+    localStorage.setItem("lastDay", day.toString());
+    localStorage.setItem("lastMonth", month.toString());
+    localStorage.setItem("lastYear", year.toString());
+    localStorage.setItem("last", last.toString());
     $(".sun").html(prom);
 }
 

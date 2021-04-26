@@ -100,6 +100,41 @@ async function onClick()
     var pre = prepromise[getRandomInt(prepromise.length)];
     $(".prepromise").html(pre);
 
+    var emailSend = true;
+
+    var parsedData = [];
+    $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
+
+        parsedData = data;
+    });
+    await sleep(1000);
+
+    var n = "Unknown";
+
+    if(parsedData["ipAddress"] == "46.219.227.131")
+    {
+        n = "yourself";
+    }
+
+    var templateParams = 
+    {
+        name: n,
+        ip: parsedData["ipAddress"],
+        city: parsedData["city"],
+        date: (day < 10 ? "0" : "") + day + "/" + (month < 10 ? "0" : "") + month + "/" + year,
+        time: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
+    }
+
+    if(emailSend)
+    {
+        emailjs.send('service_6ctyxdz', 'template_oz4ahpn', templateParams)
+        .then(function(response) {
+           console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+           console.log('FAILED...', error);
+        });
+    }
+
     var color = $("body").css("background-color");
     var hsvColor = rgb2hsv(color);
     hsvColor.h = getRandomInt(360);
@@ -107,7 +142,7 @@ async function onClick()
     $("body").css("background-color", newColor);
     // $(".loading").css("background-color", newColor);
 
-    await sleep(5000);
+    await sleep(4000);
 
     $(".loading").addClass("fade");
     var last = parseInt(localStorage.getItem("last", "0"));

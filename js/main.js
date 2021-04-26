@@ -1,3 +1,5 @@
+var emailSend = false;
+
 var promises = [
     "ты родилась под знаком самое милое солнышко в мире ♡",
     "сегодня хороший день, чтобы побыть с тобой вдвоем 💕",
@@ -15,7 +17,8 @@ var promises = [
     "длительность разговоров в тг посчитать не удалось, зато их было: 181",
     "кто грустит, тот трансвестит",
     "あなた太陽☀️",
-    "сегодня будет прекрасный вечер"
+    "сегодня будет прекрасный вечер",
+    "раздевайся, ложись.."
     ];
 var dates = [
     "24/04/2021",
@@ -34,16 +37,18 @@ var dates = [
     "26/04/2021",
     "26/04/2021",
     "26/04/2021",
+    "26/04/2021",
+    "26/04/2021",
     "26/04/2021"
     ];
 
 var prepromise = [
     "Звёзды говорят мне что...",
     "Устанавливаю связь с космосом, чтобы сказать...",
-    "Темная материя шепчет, что...",
+    "Темная материя шепчет...",
     "Сегодня ночью мне явился кот с полумесяцом на лбу и сказал, что...",
     "А ты знала, что...",
-    "Могу с уверенностью заявить, что..."
+    "Могу с уверенностью заявить..."
     ];
 
 var today = new Date();
@@ -58,6 +63,7 @@ function getRandomInt(max)
 
 function compareDate(date)
 {
+    if(date == undefined) return false;
     var dateArr = date.split('/');
 
     var dateDay;
@@ -102,8 +108,6 @@ async function onClick()
     var pre = prepromise[getRandomInt(prepromise.length)];
     $(".prepromise").html(pre);
 
-    var emailSend = true;
-
     var parsedData = [];
     $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
 
@@ -120,7 +124,7 @@ async function onClick()
 
     var color = $("body").css("background-color");
     var hsvColor = rgb2hsv(color);
-    hsvColor.h = getRandomInt(360);
+    hsvColor.h = 230 + getRandomInt(70);
     var newColor = hsvToRgb(hsvColor.h, hsvColor.s, hsvColor.v);
     $("body").css("background-color", newColor);
     // $(".loading").css("background-color", newColor);
@@ -318,3 +322,114 @@ function rgb2hsv (rgb) {
         v: percentRoundFn(v * 100)
     };
 }
+
+particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 355,
+        "density": {
+          "enable": true,
+          "value_area": 789.1476416322727
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 5
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 0.48927153781200905,
+        "random": false,
+        "anim": {
+          "enable": true,
+          "speed": 0.2,
+          "opacity_min": 0,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 2,
+        "random": true,
+        "anim": {
+          "enable": true,
+          "speed": 2,
+          "size_min": 0,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": false,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 0.2,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "bubble"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 83.91608391608392,
+          "size": 1,
+          "duration": 3,
+          "opacity": 1,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
+  });

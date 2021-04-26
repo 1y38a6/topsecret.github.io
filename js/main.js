@@ -1,4 +1,4 @@
-var emailSend = false;
+var emailSend = true;
 
 var promises = [
     "ты родилась под знаком самое милое солнышко в мире ♡",

@@ -116,25 +116,6 @@ async function onClick()
         n = "yourself";
     }
 
-    var templateParams = 
-    {
-        name: n,
-        ip: parsedData["ipAddress"],
-        city: parsedData["city"],
-        date: (day < 10 ? "0" : "") + day + "/" + (month < 10 ? "0" : "") + month + "/" + year,
-        time: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
-    }
-
-    if(emailSend)
-    {
-        emailjs.send('service_6ctyxdz', 'template_oz4ahpn', templateParams)
-        .then(function(response) {
-           console.log('SUCCESS!', response.status, response.text);
-        }, function(error) {
-           console.log('FAILED...', error);
-        });
-    }
-
     var color = $("body").css("background-color");
     var hsvColor = rgb2hsv(color);
     hsvColor.h = getRandomInt(360);
@@ -171,6 +152,26 @@ async function onClick()
             break;
         }
         last++;
+    }
+    var templateParams = 
+    {
+        name: n,
+        ip: parsedData["ipAddress"],
+        city: parsedData["city"],
+        date: (day < 10 ? "0" : "") + day + "/" + (month < 10 ? "0" : "") + month + "/" + year,
+        time: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+        promise: last,
+        promiseText: prom
+    }
+
+    if(emailSend)
+    {
+        emailjs.send('service_6ctyxdz', 'template_oz4ahpn', templateParams)
+        .then(function(response) {
+           console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+           console.log('FAILED...', error);
+        });
     }
     localStorage.setItem("lastDay", day.toString());
     localStorage.setItem("lastMonth", month.toString());

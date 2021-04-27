@@ -9,7 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
     <title>Top secret #1</title>
 </head>
-<body>
+<body onLoad="CheckAccess()">
+    <div class="access_screen container">
+        <div class="access_window">
+            <p class="access_header">внимание</p>
+            <p class="access_text">введите дату знакомства:</p>
+            <input type="date" name="date" id="date">
+            <input type="button" value="подтвердить" onclick="CheckAccessDate()">
+        </div>
+    </div>
     <div class="container black-screen" onclick="onClick()">нажми, чтобы получить предсказание</div>
     <div class="loading">
         <div class="container"><div class="lds-heart"><div></div></div></div>

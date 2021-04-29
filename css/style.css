@@ -39,13 +39,14 @@ body
   right: 0;
   left: 0;
   z-index: 2;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.822);
 }
 
 .access_window
 {
+  max-width: 95vw;
   padding: 16px 32px 32px 32px;
-  background-color: rgb(4, 4, 36);
+  background-color: rgba(2, 2, 15, 0.76);
   border-radius: 15px;
 }
 
@@ -84,6 +85,26 @@ canvas {
     right: 0;
     z-index: -3;
     color: rgb(246, 217, 255);
+}
+
+#date
+{
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 15px;
+  font-size: 18px;
+  background-color: rgba(76, 85, 212, 0.705);
+  border: none;
+}
+
+#button
+{
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 15px;
+  font-size: 18px;
+  background-color: rgba(76, 85, 212, 0.705);
+  border: none;
 }
 
 .fade

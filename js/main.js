@@ -98,8 +98,8 @@ function CheckAccessDate()
 
 function CheckAccess()
 {
-  // if(localStorage.getItem("access") == "1")
-  if(true)
+  if(localStorage.getItem("access") == "1")
+  // if(true)
   {
     $(".access_screen").addClass("hidden");
   }

@@ -10,12 +10,12 @@
     <title>Top secret #1</title>
 </head>
 <body onLoad="CheckAccess()">
+    <!-- Кнопка с выбором даты и информаицей о том, что в этот день произошло -->
     <div class="access_screen container">
         <div class="access_window">
-            <p class="access_header">внимание</p>
-            <p class="access_text">введите дату знакомства:</p>
+            <p class="access_text">уууу, сперва введи дату знакомства:</p>
             <input type="date" name="date" id="date">
-            <input type="button" value="подтвердить" onclick="CheckAccessDate()">
+            <input id="button" type="button" value="подтвердить" onclick="CheckAccessDate()">
         </div>
     </div>
     <div class="container black-screen" onclick="onClick()">нажми, чтобы получить предсказание</div>

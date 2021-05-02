@@ -1,81 +1,6 @@
 var emailSend = true;
 var access = "0";
 
-var promises = [
-    "явилась самость",
-    "на свет явилось солнышко...",
-    "сегодня ты встретишь свою судьбу",
-    "сегодня у тебя повится муж в очень странных обстоятельствах",
-    '"просто обязаны пожениться..."',
-    "случится первый виртуальный поцелуй, не подавись♡",
-    "ты порадуешь мужа скромным, но очень вкусным подарком..",
-    'ты родилась под знаком самое милое солнышко в мире<br>♡',
-    "сегодня хороший день, чтобы побыть с тобой вдвоем<br>💕",
-    "от красоты космоса захватывает дыхание... но ему не сравниться с твоими глазами<br>♡",
-    "ты сделала одного человека счастливым<br>🥰",
-    "если ты сейчас не улыбнешься, то у тебя не треснет губа...",
-    "мне срочно нужно тебя обнять",
-    "я восхищаюсь тобой",
-    "Наруто справился, справишься и ты",
-    "от твоего шёпота у меня мурашки по коже",
-    "мысли о тебе заставляют мое сердце биться быстрее",
-    "в мире нет звука приятнее, чем твой смех",
-    "все будет хорошо",
-    "мы просидели в войсе дискорда ~6862 минут, 114 часов, 4 целых и 75 сотых суток",
-    "длительность разговоров в тг посчитать не удалось, зато их было: 181",
-    "кто грустит, тот трансвестит",
-    "あなた太陽<br>☀️",
-    "сегодня будет прекрасный вечер",
-    "раздевайся, ложись..",
-    "ты ведь не думаешь, что так просто взял и пошёл спать? <br><br> я думал о тебе. думал о том, как смогу тебе поднять настроение, ведь не могу спать спокойно, когда знаю, что ты расстроена",
-    "спорить с тобой по поводу того, что пора спать быть бы глупо, поэтому не обижайся, пожалуйста, на то, что остался за компьютером",
-    "Просто хотел сказать, что ты мое солнце <br><br> моё не потому что моя собственность, а потому что без тебя в моя жизнь темная и унылая",
-    "я искренне благодарен за то, что ты даришь мне улыбку уже вот почти два месяца, что меня пустила в свой хрупкий мирок<br>что заставляешь мое сердце биться быстрее, за то, что могу слышать твой смех, за твою заботу, что даришь мне всё то, чего мне не хватало, за то, что дала возможность ощутить счастье",
-    "благодарен, что ты такое солнышко, за твои старания, за то, что могу восхищаться тобой, твоими успехами, разделись всю радость и грусть, за то, что остановила боль в моей груди",
-    '大好き<div class="lds-heart"><div></div></div></div>',
-    "ты ещё не проснулась, а уже такое солнышко :з",
-    "сегодня произойдет что-то хорошее",
-    "тебя ждет сказка на ночь...",
-    "я горжусь тем, что являюсь мужем такой сильной женщины.."
-    ];
-var dates = [
-    "12/02/2001",
-    "17/05/2002",
-    "01/03/2021",
-    "04/03/2021",
-    "09/03/2021",
-    "16/03/2021",
-    "21/03/2021",
-    "24/04/2021",
-    "24/04/2021",
-    "24/04/2021",
-    "24/04/2021",
-    "24/04/2021",
-    "24/04/2021",
-    "24/04/2021",
-    "25/04/2021",
-    "25/04/2021",
-    "25/04/2021",
-    "25/04/2021",
-    "25/04/2021",
-    "26/04/2021",
-    "26/04/2021",
-    "26/04/2021",
-    "26/04/2021",
-    "26/04/2021",
-    "26/04/2021",
-    "28/04/2021",
-    "28/04/2021",
-    "28/04/2021",
-    "28/04/2021",
-    "28/04/2021",
-    "28/04/2021",
-    "29/04/2021",
-    "29/04/2021",
-    "01/05/2021",
-    "01/05/2021"
-    ];
-
 var prepromise = [
     "Звёзды говорят мне что...",
     "Устанавливаю связь с космосом, чтобы сказать...",
@@ -96,6 +21,158 @@ var today = new Date();
 var day = today.getDate();
 var month = today.getMonth()+1;
 var year = today.getFullYear();
+var todayDate = (day < 10 ? "0" : "") + day + "/" + (month < 10 ? "0" : "") + month + "/" + year;
+
+var predictions = {};
+
+function LoadDates()
+{
+  AddPrediction(
+    "12/02/2001",
+    "явилась самость"
+    );
+
+  AddPrediction(
+    "17/05/2002",
+    "произошло чудо.. в виде тебя"
+    );
+
+  AddPrediction(
+    "01/03/2021",
+    "сегодня ты встретишь свою судьбу"
+    );
+
+  AddPrediction(
+    "04/03/2021",
+    "сегодня у тебя повится муж в очень странных обстоятельствах"
+    );
+
+  AddPrediction(
+    "09/03/2021",
+    '"мне кажется мы просто обязаны пожениться"'
+    );
+
+  AddPrediction(
+    "16/03/2021",
+    "случится первый виртуальный поцелуй, не подавись♡"
+  );
+
+  AddPrediction(
+    "21/03/2021",
+    "скромный подарок, который растопит моё сердце"
+  );
+
+  AddPrediction(
+    "19/04/2021",
+    "кажется, я люблю тебя"
+  );
+
+  AddPredictions(
+    "24/04/2021",
+    [
+      "00:20. люблю тебя",
+      "ты родилась под знаком самое милое солнышко в мире<br>♡",
+      "сегодня хороший день, чтобы побыть с тобой вдвоем<br>💕",
+      "от красоты космоса захватывает дыхание... но ему не сравниться с твоими глазами<br>♡",
+      "ты сделала одного человека счастливым<br>🥰",
+      "если ты сейчас не улыбнешься, то у тебя не треснет губа...",
+      "мне срочно нужно тебя обнять",
+      "я восхищаюсь тобой"
+    ]
+  );
+
+  AddPredictions(
+    "25/04/2021",
+    [
+      "Наруто справился, справишься и ты",
+      "от твоего шёпота у меня мурашки по коже",
+      "мысли о тебе заставляют мое сердце биться быстрее",
+      "в мире нет звука приятнее, чем твой смех",
+      "все будет хорошо"
+    ]
+  );
+
+  AddPredictions(
+    "26/04/2021",
+    [
+      "мы просидели в войсе дискорда ~6862 минут, 114 часов, 4 целых и 75 сотых суток",
+      "длительность разговоров в тг посчитать не удалось, зато их было: 181",
+      "кто грустит, тот трансвестит",
+      "あなた太陽<br>☀️",
+      "сегодня будет прекрасный вечер",
+      "раздевайся, ложись.."
+    ]
+  );
+
+  AddPrediction(
+    "27/04/2021",
+    "сегодня кто-то будет плакать от счастья"
+  );
+
+  AddPredictions(
+    "28/04/2021",
+    [
+      "ты ведь не думаешь, что так просто взял и пошёл спать? <br><br> я думал о тебе. думал о том, как смогу тебе поднять настроение, ведь не могу спать спокойно, когда знаю, что ты расстроена",
+      "спорить с тобой по поводу того, что пора спать быть бы глупо, поэтому не обижайся, пожалуйста, на то, что остался за компьютером",
+      "Просто хотел сказать, что ты мое солнце <br><br> моё не потому что моя собственность, а потому что без тебя в моя жизнь темная и унылая",
+      "я искренне благодарен за то, что ты даришь мне улыбку уже вот почти два месяца, что меня пустила в свой хрупкий мирок<br>что заставляешь мое сердце биться быстрее, за то, что могу слышать твой смех, за твою заботу, что даришь мне всё то, чего мне не хватало, за то, что дала возможность ощутить счастье",
+      "благодарен, что ты такое солнышко, за твои старания, за то, что могу восхищаться тобой, твоими успехами, разделись всю радость и грусть, за то, что остановила боль в моей груди",
+      '大好き<div class="lds-heart"><div></div></div></div>'
+    ]
+  );
+
+  AddPredictions(
+    "29/04/2021",
+    [
+      "ты ещё не проснулась, а уже такое солнышко :з",
+      "сегодня произойдет что-то хорошее"
+    ]
+  );
+
+  AddPredictions(
+    "01/05/2021",
+    [
+      "тебя ждет сказка на ночь...",
+      "я горжусь тем, что являюсь мужем такой сильной женщины.."
+    ]
+  );
+
+  AddPredictions(
+    "02/05/2021",
+    [
+      "ты справишься осталось совсем немного<br>♥"
+    ]
+  );
+}
+
+function AddPredictions(date, value)
+{
+  if(predictions[date] == undefined)
+  {
+    predictions[date] = value;
+  }
+  else
+  {
+    for(var i = 0; i<value.length; i++)
+    {
+      predictions[date].push(value[i]);
+    }
+  }
+}
+
+function AddPrediction(date, value)
+{
+  if(predictions[date] == undefined)
+  {
+    var valueArr = [];
+    valueArr.push(value);
+    predictions[date] = valueArr;
+  }
+  else
+  {
+    predictions[date].push(value);
+  }
+}
 
 function getRandomInt(max)
 {
@@ -108,145 +185,185 @@ function CheckAccessDate()
   if(accessDate == "2021-03-01")
   {
     localStorage.setItem("access", "1");
-    $(".access_screen").addClass("fade");
+    $(".access_screen").addClass("transparent");
   }
 }
 
 function CheckAccess()
 {
-  if(localStorage.getItem("access") == "1")
-  // if(true)
+  if(localStorage.getItem("access") != "1")
   {
-    $(".access_screen").addClass("hidden");
+     $(".access_screen").removeClass("transparent");
   }
 }
 
 function compareDate(date)
 {
     if(date == undefined) return false;
-    var dateArr = date.split('/');
-
-    var dateDay = parseInt(dateArr[0]);
-
-    var dateMonth = parseInt(dateArr[1]);
-
-    var dateyear = parseInt(dateArr[2]);
-    if(year == dateyear)
-    {
-        if(month == dateMonth)
-        {
-            if(day == dateDay)
-            {
-                return true;
-            }
-        }
-    }
-    
-    return false;
+    return date == todayDate;
 }
 
-async function onClick()
+async function GetGeoData()
 {
-    $(".black-screen").addClass("fade");
-    var pre = prepromise[getRandomInt(prepromise.length)];
-    $(".prepromise").html(pre);
-
-    var parsedData = [];
+  var parsedData = [];
     $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
 
         parsedData = data;
     });
     await sleep(1000);
+  return parsedData;
+}
+
+function SetRandomPreprediction()
+{
+  var pre = prepromise[getRandomInt(prepromise.length)];
+  var loop = 0;
+  while(pre == lastPreprediction)
+  {
+    pre = prepromise[getRandomInt(prepromise.length)];
+    if(loop > 15)
+    {
+      break;
+    }
+  }
+  localStorage.setItem("lastPreprediction", pre);
+  $(".prepromise").html(pre);
+}
+
+var lastPreprediction = localStorage.getItem("lastPreprediction");
+
+function SetRandomColor()
+{
+  var color = $("body").css("background-color");
+  var hsvColor = rgb2hsv(color);
+  hsvColor.h = 230 + getRandomInt(70);
+  var newColor = hsvToRgb(hsvColor.h, hsvColor.s, hsvColor.v);
+  $("body").css("background-color", newColor);
+}
+
+function GetLast()
+{
+  last = parseInt(localStorage.getItem("last", "0"));
+  if(isNaN(last))
+  {
+    return 0;
+  }
+
+  var lastDate = localStorage.getItem("lastdate");
+  if(lastDate != undefined)
+  {
+    if(!compareDate(lastDate))
+    {
+      return 0;
+    }
+  }
+  return last;
+}
+
+async function onClick()
+{
+    LoadDates();
+    $(".black-screen").addClass("fade");
+    SetRandomPreprediction();
+
+    var parsedData = await GetGeoData();
 
     var n = "Unknown";
 
-    if(parsedData["ipAddress"] == "46.219.227.131")
-    {
-      n = "yourself";
-      emailSend = false;
-    }
-    else if(parsedData["ipAddress"] == "178.133.132.12" || parsedData["ipAddress"] == "178.133.232.180")
-    {
-      n = "kar1sha";
-    }
-
-    var color = $("body").css("background-color");
-    var hsvColor = rgb2hsv(color);
-    hsvColor.h = 230 + getRandomInt(70);
-    var newColor = hsvToRgb(hsvColor.h, hsvColor.s, hsvColor.v);
-    $("body").css("background-color", newColor);
-    // $(".loading").css("background-color", newColor);
+    SetRandomColor();
 
     if(emailSend)
     {
       await sleep(2000);
     }
-
     $(".loading").addClass("fade");
-    var last = parseInt(localStorage.getItem("last", "0"));
-    if(isNaN(last))
-    {
-        last = 0;
-    }
-    var lastDate = "00/00/0000";
-    if(localStorage.getItem("lastDay"))
-    {
-        lastDate = localStorage.getItem("lastDay") + "/" + localStorage.getItem("lastMonth") + "/"  + localStorage.getItem("lastYear");
-    }
-    if(!compareDate(lastDate))
-    {
-        last = 0;
-    }
+
+    var last = GetLast();
     
-    var prom = "пока ничего, но обязательно возвращайся завтра<br>🥺";
-    var promEmpty = true;
-    $(".date").html((day < 10 ? "0" : "") + day + "/" + (month < 10 ? "0" : "") + month + "/" + year);
-    while(last < promises.length)
+    var currentPrediction = "";
+    $(".date").html(todayDate);
+    
+    if(predictions[todayDate] != undefined)
     {
-        if(compareDate(dates[last]))
-        {
-            console.log("match");
-            promEmpty = false;
-            prom = promises[last];
-            $(".date").html(dates[last]);
-            last++;
-            break;
-        }
+      if(last < predictions[todayDate].length)
+      {
+        currentPrediction = predictions[todayDate][last];
+        localStorage.setItem("lastPrediction", currentPrediction);
         last++;
+      }
     }
-    if(promEmpty)
+
+    if(currentPrediction.length == 0)
     {
-      prom += "<br><br> чтобы тебе не было грустно, вот тебе рандомное предсказание из прошлого:<br><br>";
-      var r = getRandomInt(promises.length);
-      prom += "[" + dates[r] + "]<br>" + promises[r];
+      currentPrediction = ReturnRandom();
     }
+
     var templateParams = 
     {
         name: n,
         ip: parsedData["ipAddress"],
         city: parsedData["city"],
-        date: (day < 10 ? "0" : "") + day + "/" + (month < 10 ? "0" : "") + month + "/" + year,
-        time: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+        date: today.toDateString(),
+        time: today.toTimeString(),
         promise: last,
-        promiseText: prom
+        promiseText: currentPrediction
     }
     
-    if(emailSend)
-    {
-        emailjs.send('service_6ctyxdz', 'template_oz4ahpn', templateParams)
+    SendEmail(templateParams);
+
+    localStorage.setItem("lastdate", todayDate);
+    // localStorage.setItem("lastdate", "00/00/0000");
+    localStorage.setItem("last", last.toString());
+    $(".prediction").html(currentPrediction);
+    $(".sun").removeClass("transparent");
+}
+
+function SendEmail(params)
+{
+  if(emailSend)
+  {
+    emailjs.send('service_6ctyxdz', 'template_oz4ahpn', params)
         .then(function(response) {
            console.log('SUCCESS!', response.status, response.text);
         }, function(error) {
            console.log('FAILED...', error);
         });
-    }
-    localStorage.setItem("lastDay", day.toString());
-    // localStorage.setItem("lastDay", "-1");
-    localStorage.setItem("lastMonth", month.toString());
-    localStorage.setItem("lastYear", year.toString());
-    localStorage.setItem("last", last.toString());
-    $(".sun").html(prom);
+  }
 }
+
+var lastPrediction = localStorage.getItem("lastPrediction");
+
+function ReturnRandom()
+{
+  var string = "пока ничего, но обязательно возвращайся завтра<br>💕";
+  string += "<br><br> чтобы тебе не было грустно, вот тебе рандомное предсказание из прошлого:<br><br>";
+  var key = RandomKey();
+  var value = RandomKeyValue(key);
+  var loop = 0;
+  while(value == lastPrediction)
+  {
+    key = RandomKey();
+    value = RandomKeyValue(key);
+    if(loop > 15)
+    {
+      break;
+    }
+  }
+  localStorage.setItem("lastPrediction", value);
+  string += "[ " + key + " ]<br>" + value;
+  return string;
+}
+
+function RandomKey()
+{
+  return Object.keys(predictions)[Math.floor(Math.random()*Object.keys(predictions).length)];
+};
+
+function RandomKeyValue(key)
+{
+  var random = Math.floor(Math.random()*predictions[key].length);
+  return predictions[key][random];
+};
 
 function sleep(ms)
 {

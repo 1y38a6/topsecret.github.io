@@ -7,7 +7,7 @@
 body
 {
     overflow: hidden;
-    font-size: 24px;
+    font-size: 20px;
     width: 100vw;
     height: 100vh;
     color: white;
@@ -61,6 +61,13 @@ body
   display: none !important;
 }
 
+.transparent
+{
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+}
+
 canvas {
   display: block;
   vertical-align: bottom;
@@ -70,12 +77,14 @@ canvas {
   position: absolute;
   width: 100%;
   height: 100%;
+  z-index: -0;
   pointer-events: none;
   user-select: none;
 }
 
 .sun
 {
+  transition: 500ms ease-in-out;
     padding-left: 10vw;
     padding-right: 10vw;
     position: absolute;
@@ -83,8 +92,18 @@ canvas {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: -3;
+    z-index: 1;
     color: rgb(246, 217, 255);
+}
+
+.prediction
+{
+  padding-top: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: rgba(0, 0, 0, 0.466);
+  border-radius: 15px;
+  padding-bottom: 16px;
 }
 
 #date
@@ -124,8 +143,12 @@ canvas {
 
 .prepromise
 {
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding-top: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: rgba(0, 0, 0, 0.466);
+    border-radius: 15px;
+    padding-bottom: 16px;
 }
 
 .loading
@@ -157,15 +180,20 @@ canvas {
 
 .date
 {
+  transition: 200ms ease-in-out;
     position: absolute;
     opacity: 0.75;
-    top: 1vh;
+    top: 0;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    width: auto;
     text-align: center;
     padding-left: 5vw;
     padding-right: 5vw;
     left: 0;
     right: 0;
     font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.705);
 }
 
 .lds-heart {

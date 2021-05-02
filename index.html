@@ -11,7 +11,7 @@
 </head>
 <body onLoad="CheckAccess()">
     <!-- Кнопка с выбором даты и информаицей о том, что в этот день произошло -->
-    <div class="access_screen container">
+    <div class="access_screen container transparent">
         <div class="access_window">
             <p class="access_text">уууу, сперва введи дату знакомства:</p>
             <input type="date" name="date" id="date">
@@ -22,9 +22,13 @@
     <div class="loading">
         <div class="container"><div class="lds-heart"><div></div></div></div>
         <br>
-        <p class="prepromise"></p>
+        <div class="container">
+            <p class="prepromise"></p>
+        </div>
     </div>
-    <div class="container sun"></div>
+    <div class="container sun transparent">
+        <p class="prediction"></p>
+    </div>
     <div class="date"></div>
     <div class="copyright">все предсказания распостраняются только на Оганесян Карину</div>
     <div id="particles-js"></div>
